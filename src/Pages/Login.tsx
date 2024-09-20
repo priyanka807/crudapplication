@@ -21,9 +21,9 @@ const initialValues:formValue = {
   password: "",
 };
 
-const id = localStorage.getItem('id')
-const signuppassword = localStorage.getItem('signuppassword')
 
+const newUser =  JSON.parse(localStorage.getItem("newUser"))
+   console.log(newUser.password ,'newUser ')
 const LoginPage = () => {
   const navigate = useNavigate();
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -31,7 +31,7 @@ const LoginPage = () => {
   const [getEmail, setGetEmail] = useState("");
   const refEmail = useRef()
   const refPassword = useRef()
-  console.log(refEmail, refPassword,'currentElement')
+  // console.log(refEmail, refPassword,'currentElement')
 
   useEffect(() => {
     refEmail.current.style.color = 'gray';
@@ -48,75 +48,67 @@ const LoginPage = () => {
       
       
       onSubmit: (values) => {
-        signInWithEmailAndPassword(auth, values.email, values.password)
-          .then((userCredential) => {
-            const user = userCredential.user; 
-            // navigate('/ShowProductList')
-            console.log(user,'user  in login')
-          //  const id = user.email  
-        // if(signuppassword!==null){
-        //   if (values.password.localeCompare(signuppassword, undefined, { sensitivity: 'base' }) === 0) {
+        // signInWithEmailAndPassword(auth, values.email, values.password)
+        //   .then((userCredential) => {
+        //     const user = userCredential.user; 
+              //  const id = user.email  
+         
+
             
-        //     axios.get(`http://localhost:9020/userlist/${values.email}`)
-        //     .then((res) => {
-        //       console.log(res.data.password,'res')
-        //       if(res.data.password===values.password){
-        //         if (Object.keys(res.data).length === 0) {
-        //           toast.error('Please Enter valid email');
-        //       } else {
+            axios.get(`http://localhost:9020/userlist/${values.email}`)
+            .then((res) => {
+         
+              if(res.data.password===values.password){
+            
+                if (res.data.role === "superadmin"||res.data.role === "admin") {
+                  toast.success('successfully signin');
+                  navigate('/user-list');
+                  localStorage.setItem('id',res.data.id );
+                  localStorage.setItem('password', res.data.password);
+                  localStorage.setItem('role',res.data.role );
 
-        //           if (res.data.role === "superadmin"||res.data.role === "admin") {
-        //               toast.success('successfully signin');
-        //               navigate('/user-list');
-        //               localStorage.setItem('id',res.data.id );
-        //               localStorage.setItem('password', res.data.password);
-        //               localStorage.setItem('role',res.data.role );
-
-        //           } else{
-        //             localStorage.setItem('id',res.data.id );
-        //             localStorage.setItem('password', res.data.password);
-                   
-        //             const roleCandidate = "user"
-        //             localStorage.setItem('role',roleCandidate );
-        //             navigate('/ShowProductList')}
+              } else{
+                localStorage.setItem('id',res.data.id );
+                localStorage.setItem('password', res.data.password);
                
-        //         const role = localStorage.getItem("role")
-        //         console.log(role,'role')
-        //       }
-        //       }else{
-        //     toast.warning("password do not match")
-        //   }
-               
-        //     })
-        //     .catch((error) => {
-        //       toast.error("Invalid login credentials. Please check and try again,User was not found ")
-
-        //     });
-
-        //   }else{
-        //     toast.warning("password do not match")
-        //   }
+                const roleCandidate = "user"
+                localStorage.setItem('role',roleCandidate );
+                navigate('/ShowProductList')}
+           
           
-        // }else{
-        //  toast.warning("user not found")
-        // }
+          }
+
+                
+              else{
+            toast.warning("password do not match")
+          }
+               
+            })
+            .catch((error) => {
+              toast.error("Invalid login credentials. Please check and try again,User was not found ")
+
+            });
+
+        
+      
+       
         
             
-  })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            if(errorMessage.includes('user')){
-              toast.error('Invalid login credentials. Please check and try again,User was not found')
-            }else{
-              toast.error('Invalid login credentials.Password do not match')
+  // })
+  //         .catch((error) => {
+  //           const errorCode = error.code;
+  //           const errorMessage = error.message;
+  //           if(errorMessage.includes('user')){
+  //             toast.error('Invalid login credentials. Please check and try again,User was not found')
+  //           }else{
+  //             toast.error('Invalid login credentials.Password do not match')
 
-            }
-          console.log(errorMessage,'errorMessage in login')
+  //           }
+  //         console.log(errorMessage,'errorMessage in login')
 
      
-            // seterrMsg(errorMessage);
-          });
+           
+  //         });
       },
     });
 

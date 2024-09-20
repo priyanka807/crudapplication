@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { json, Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import './signup.scss';
 import { useState,memo,useMemo } from 'react';
@@ -40,61 +40,51 @@ const Signup = () => {
   const { values, errors, handleChange, handleBlur, handleSubmit, touched } = useFormik({
     initialValues: initialValues,
     validationSchema: signupSchemas,
-    onSubmit: (values) => {
-      console.log(values,'values')
+    onSubmit: async (values) => {
+  
+  
       if (termsChecked) {
-        createUserWithEmailAndPassword(
-          auth,
-          values.email,
-          values.password
-        )
-          .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(user,'user')
+          let payload = {
+              id: values.email,
+              email: values.email,
+              firstName: values.first_name,
+              lastName: values.last_name,
+              password: values.password,
+              role: values.role,
+          };
+  
+          try {
+            
+              const response = await axios.get("http://localhost:9020/userlist");
+              const existingUser = response.data.find((users)=>users.id===values.email);
+  
+              if (existingUser) {
+                  throw new Error("Email already exists");
+              }
+  
+          
+   await axios.post("http://localhost:9020/userlist", payload)
+          //  localStorage.setItem("newUser",JSON.stringify(payload))
 
-            //db.json  create obj in db json  
-            // let payload = {
-            //   id: values.email,
-            //   email:values.email,
-            //   firstName: values.first_name,
-            //   lastName: values.last_name,
-            //   password: values.password,
-            //   role:values.role,
-            // };
-
-           // Store user data in Firebase
-            // try {
-            //   axios.post("http://localhost:9020/userlist", payload).then((res) => {
-            //     // localStorage.setItem('id',res.data.id);
-            //     // localStorage.setItem('signuppassword',res.data.password);
-
-            //     toast.success("Registered Successfully");
-
-
-            //     navigate('/');
-            //   }).catch((error)=>{
-            //     setError("email already exist")
-            //   });
-            // } catch (error) {
-            //   console.log(error?.response?.status, 'error');
-            // }
-
-
-
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            setError(errorCode);
-            const errorMessage = error.message;
-            toast.error(errorMessage)
-          });
+         
+  // console.log(newUser.data,'........newUser')
+          
+             
+  
+     
+              toast.success("Registered Successfully");
+              navigate('/'); 
+          } catch (error) {
+           
+              toast.error(error.message || "An error occurred");
+          }
       } else {
-        toast.error('Please accept the terms and conditions');
-
-        
+          toast.error('Please accept the terms and conditions');
       }
-    }
+  }
+  
   });
+  // console.log(userList,'getuserlist')
 const memorizedHandlesubmit = useMemo(()=>handleSubmit,[handleSubmit])
 const options = useMemo(()=>{
   return (<>

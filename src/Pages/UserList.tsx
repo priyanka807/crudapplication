@@ -26,13 +26,14 @@ const UserList = () => {
   const navigate = useNavigate();
   const [userId, setUserId] = useState('')
 
-  const UserHeadings = ["First Name", "Last Name", "Email", "Role", "Actions"];
+  const UserHeadings = ["First Name", "Last Name", "Email", "Role","Password", "Actions"];
   interface userlistType {
      
     firstName:string,
     lastName:string,
     email:string,
     role:string,
+    password:string,
    
   };
   
@@ -41,6 +42,7 @@ const UserList = () => {
     lastName: "",
     email: "",
     role: "",
+    password:''
   };
 
   const {
@@ -54,11 +56,11 @@ const UserList = () => {
     initialValues,
     // validationSchema: editProductSchemas,
     onSubmit: (formData) => {
-      console.log(formData,'formData')
+      console.log(formData,'...........formData in userlist ')
       if (editUser) {  
        
         axios
-          .put(`http://localhost:9020/userlist/${userId}`, {id:userId,email:values.email, firstName:values.firstName, lastName:values.lastName,role:values.role})
+          .put(`http://localhost:9020/userlist/${userId}`, {id:userId,email:values.email,password:values.password, firstName:values.firstName, lastName:values.lastName,role:values.role})
           .then((response) => {
            localStorage.setItem('role',values.role)
             setIsEditing(false);
@@ -183,6 +185,7 @@ const UserList = () => {
         lastName: user.lastName,
         email: user.email,
         role: user.role,
+        password:user.password
       });
     } else {
       toast.error("You are not authorized to edit users");
@@ -215,7 +218,9 @@ const UserList = () => {
                     <td>{user.firstName}</td>
                     <td>{user.lastName}</td>
                     <td>{user.email}</td>
+                
                     <td>{user.role || "User"}</td>
+                    <td>{user.password}</td>
                     <td>
                       {haveEditAccess && (
                         <>
@@ -309,11 +314,27 @@ const UserList = () => {
                 onChange={handleChange}
                 required
               />
-              {touched.id && errors.id && (
-                <span className="error text-danger">{errors.id}</span>
+              {touched.email && errors.email && (
+                <span className="error text-danger">{errors.email}</span>
               )}
             </div>
-
+            <div className="mb-3 col-lg-12 w-100">
+              <label htmlFor="password" className="form-label">
+               Password
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="password"
+                name="password"
+                value={values.password}
+                onChange={handleChange}
+                required
+              />
+              {touched.password && errors.password && (
+                <span className="error text-danger">{errors.password}</span>
+              )}
+            </div>
             <div className="mb-3 col-lg-12 w-100">
               <label htmlFor="role" className="form-label">
                 Role
@@ -332,7 +353,7 @@ const UserList = () => {
                 <option value="user">User</option>
               </select>
             </div>
-
+           
             <Modal.Footer>
               <Button variant="secondary btn-md" onClick={() => setIsEditing(false)}>
                 Close
