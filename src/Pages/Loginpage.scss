@@ -1,0 +1,105 @@
+
+@import 'scssProperty';
+
+
+.form-container{
+   @include displexProperty;
+   transition: background-color 300ms;
+
+   .form-content{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    background:$commonbackground !important;
+    color:$color;
+    border-radius:6px;
+    padding:30px;
+    width:400px;
+    height:470px;
+
+    form .continue,.twitter,.facebook,.emailId,.password,.signup,.log-out{
+      margin: auto;
+      background-color: hsl(0, 0%, 90%);
+      transition: background-color 300ms;
+     outline:none;
+     border:none;
+     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+     padding: 10px;
+     border-bottom:1px solid gray;
+     width: 100%;
+     margin-bottom:20px;
+     border-radius: 6px;
+    }
+    .signup{
+     @include  textalign(center);
+
+     background-color: #3598dc !important;
+       color:$colorblack !important;
+    }
+    .signup:hover{
+     background-color: #6ec0f6 !important;
+       color:$colorblack !important;
+    }
+    .continue{
+     background-color: rgb(4, 128, 4) !important;
+     
+    }
+   
+   .log-out{
+     background-color: #a23edd;
+   }
+    .twitter{
+      background-color: $background;
+    }
+    .twitter:hover{
+      background-color:    $background;
+      ;
+    }
+    .facebook{
+      background-color:rgb(47, 29, 249);
+      color:$color
+      
+      
+      ;
+   
+    }
+    .facebook:hover{
+      background-color:rgb(41, 34, 114);
+    
+    }
+    .continue{
+      color:$color;
+   
+    }
+    .continue:hover{
+      background-color:   rgb(47, 255, 116)!important;  border-bottom:1px solid gray;
+   
+    }
+    .emailId,.password{
+      background-color: $color !important;
+      border-bottom:1px solid darkmagenta !important;
+      box-shadow: none !important;
+   
+    }
+   
+    .errors{
+   padding-top:4px;
+     color: red;
+   
+   }
+   
+   Link{
+     color:$colorblack;
+   }
+   .form-control{
+     width: 100% !important;
+   }
+   
+ 
+ }
+ .custom-class{
+  height: 500px;
+
+}
+
+}
+
+

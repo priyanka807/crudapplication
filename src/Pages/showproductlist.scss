@@ -1,0 +1,36 @@
+
+@import 'scssProperty';
+
+.table-striped>tbody>tr:nth-of-type(odd)>*{
+    padding: $padding;
+
+}
+.table-striped>tbody>tr:nth-of-type(even)>*{
+    padding: $padding;
+
+}
+@media (max-width: 768px) {
+   
+    .table-container {
+      overflow-x: auto; 
+      color:green;
+    }
+    
+    
+    .table.table-striped.table-bordered.table-dark {
+      width: 100%;
+    }
+        .span{
+        //  font-size: 13px;
+        //  display: block;
+        //  margin-right:3px;
+        }
+        .text-primary{
+            // margin-left: 116px;
+            // vertical-align: middle;
+
+        }
+        .product-list{
+            // margin-left: 20px;
+        }
+  }

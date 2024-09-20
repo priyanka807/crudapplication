@@ -1,0 +1,27 @@
+
+@import 'scssProperty';
+
+.container-student{
+    width:400px !important;
+    background-color: $commonbackground  !important;
+    margin-top: 50px;
+    color:$color;
+
+    .submit_button{
+        width: 100%;
+        content: '';
+        display: inline-block;
+        height: 36px;
+        vertical-align: middle;
+        font-size: large;
+       
+        padding: 5px 40px;
+        transition:background-color ease-in 3s;
+    }
+}
+
+
+table{
+    padding: 30px !important;
+}
+

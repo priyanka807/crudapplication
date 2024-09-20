@@ -1,0 +1,106 @@
+@import 'scssProperty';
+
+.main-container-signup {
+  color: $color;
+  font-family: 'Roboto', sans-serif;
+ @include displexProperty;
+
+  .signup-form {
+    width: 400px;
+    margin: auto;
+
+    form {
+
+      color: #999;
+      // #999
+      border-radius: 3px;
+      margin-bottom: 15px;
+      background: $commonbackground !important;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+      padding: 30px;
+
+      .form-control-signup,
+      .btn {
+        border-radius: 3px;
+      }
+
+      h2 {
+        color: #333;
+        font-weight: bold;
+        margin-top: 0;
+      }
+
+      hr {
+        margin: 0 -30px 20px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      input[type="checkbox"] {
+        margin-top: 3px;
+      }
+
+      .row div:first-child {
+        padding-right: 10px;
+      }
+
+      .row div:last-child {
+        padding-left: 10px;
+      }
+
+      .btn {
+        font-size: 16px;
+        font-weight: bold;
+        background: $background;
+        border: none;
+        min-width: 140px;
+
+        &:hover,
+        &:focus {
+          background: $background !important;
+          outline: none;
+        }
+      }
+
+      a {
+        color: $background !important;
+        text-decoration: underline !important;
+
+        &:hover {
+          text-decoration: none !important;
+        }
+      }
+
+      .hint-text {
+        padding-bottom: 15px;
+        @include  textalign(center);
+
+      }
+
+      .form-control-signup {
+        height: 41px;
+        box-shadow: none !important;
+        border: none;
+
+        &:focus {
+          background: #e2e2e2;
+        }
+      }
+
+      .error {
+        color: rgb(251, 91, 91);
+        text-transform: capitalize;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        @include  textalign(left);
+      }
+    }
+  }
+
+  .signup-form1 {
+    margin-top: 30px;
+  }
+}
+
+
