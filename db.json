@@ -1,0 +1,171 @@
+{
+  "userlist": [
+    {
+      "id": "abhishek@gmail.com",
+      "email": "abhishek@gmail.com",
+      "password": "abhishek",
+      "firstName": "abhishek panday bechen",
+      "lastName": "sharma",
+      "role": "user"
+    },
+    {
+      "id": "priyanka@gmail.com",
+      "email": "priyanka@gmail.com",
+      "firstName": "priyanka",
+      "lastName": "kumari",
+      "role": "admin",
+      "password": "priyanka"
+    },
+    {
+      "id": "lali@gmail.com",
+      "email": "lali@gmail.com",
+      "firstName": "lali",
+      "lastName": "jha",
+      "password": "123456",
+      "role": "admin"
+    },
+    {
+      "id": "kiranrani@gmail.com",
+      "email": "kiranrani@gmail.com",
+      "firstName": "kiran",
+      "lastName": "kumari",
+      "password": "123456",
+      "role": "user"
+    },
+    {
+      "id": "kiran@gmail.com",
+      "email": "kiran@gmail.com",
+      "firstName": "kiran",
+      "lastName": "kumari",
+      "password": "123456",
+      "role": "user"
+    },
+    {
+      "id": "kiran@gmail.com",
+      "email": "kiran@gmail.com",
+      "firstName": "kiran",
+      "lastName": "kumari",
+      "password": "123456",
+      "role": "user"
+    },
+    {
+      "id": "kiran6@gmail.com",
+      "email": "kiran6@gmail.com",
+      "firstName": "kiran",
+      "lastName": "kumari",
+      "password": "123456",
+      "role": "user"
+    },
+    {
+      "id": "kirti1@gmail.com",
+      "email": "kirti1@gmail.com",
+      "firstName": "kirti",
+      "lastName": "jha",
+      "password": "123456",
+      "role": "user"
+    }
+  ],
+  "roleaccess": [
+    {
+      "role": "superadmin",
+      "menu": "productList",
+      "haveadd": true,
+      "haveedit": true,
+      "havedelete": true,
+      "id": "10c8"
+    },
+    {
+      "role": "superadmin",
+      "menu": "supplier",
+      "haveadd": true,
+      "haveedit": true,
+      "havedelete": true
+    },
+    {
+      "role": "admin",
+      "menu": "productList",
+      "haveadd": true,
+      "haveedit": true,
+      "havedelete": true
+    },
+    {
+      "role": "user",
+      "menu": "productList",
+      "haveadd": false,
+      "haveedit": false,
+      "havedelete": false
+    },
+    {
+      "role": "admin",
+      "menu": "productList",
+      "haveadd": true,
+      "haveedit": true,
+      "havedelete": false
+    }
+  ],
+  "productList": [
+    {
+      "name": "Laptop",
+      "description": "High performance laptop for work and gaming",
+      "category": "Electronics",
+      "price": 999.99,
+      "id": "2"
+    },
+    {
+      "id": "1",
+      "name": "Smartphone",
+      "category": "Electronics",
+      "description": "The latest smartphone with advanced features.",
+      "price": 499.99
+    },
+    {
+      "id": "2",
+      "name": "Laptop",
+      "category": "Electronics",
+      "description": "High-performance laptop for work and gaming.",
+      "price": 999.99
+    },
+    {
+      "name": "Coffee Makerdfhkml ",
+      "description": "A programmable coffee maker for your morning brew",
+      "category": "Kitchen Appliances",
+      "price": 89.993546,
+      "id": "3"
+    },
+    {
+      "name": "ertytghhjgj",
+      "description": "dfghjknvxmcbchf",
+      "category": "hjsdhbgjkj",
+      "price": 56,
+      "id": "4"
+    },
+    {
+      "name": "priyanka kumari",
+      "description": "dghjjijoijoijoijo",
+      "category": "laptop category",
+      "price": 657,
+      "id": "5"
+    },
+    {
+      "name": "priyanka kumari",
+      "description": "dghkjkkkjkjllkj",
+      "category": "sjkdfihvi",
+      "price": 85,
+      "id": "7"
+    },
+    {
+      "name": "hbjkj",
+      "description": "laptop Description",
+      "category": "laptop category",
+      "price": 8,
+      "id": "8"
+    },
+    {
+      "id": "ac8f",
+      "name": "batball",
+      "description": "cricket is my favourite game",
+      "category": "game",
+      "price": 1000
+    }
+  ]
+}
