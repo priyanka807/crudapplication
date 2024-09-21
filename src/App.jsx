@@ -27,6 +27,7 @@ dispatch(fetchProductList())
   return (
     <>
 {/* <Spinner/> */}
+<h1>this is running in the background !!</h1>
 <ToastContainer theme='colored' position='top-center'></ToastContainer>
 
 <BrowserRouter>
