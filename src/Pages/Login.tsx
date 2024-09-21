@@ -22,8 +22,7 @@ const initialValues:formValue = {
 };
 
 
-const newUser =  JSON.parse(localStorage.getItem("newUser"))
-   console.log(newUser.password ,'newUser ')
+
 const LoginPage = () => {
   const navigate = useNavigate();
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -31,6 +30,9 @@ const LoginPage = () => {
   const [getEmail, setGetEmail] = useState("");
   const refEmail = useRef()
   const refPassword = useRef()
+  const newUser =  JSON.parse(localStorage.getItem("newUser"))
+  
+  //  console.log(newUser.password ,'newUser ')
   // console.log(refEmail, refPassword,'currentElement')
 
   useEffect(() => {
@@ -114,6 +116,7 @@ const LoginPage = () => {
 
   return (
     <>
+    <h2>this is login page it is not calling  this is showing on live  </h2>
       <div className="form-container">
         <div className={`form-content ${isSubmitted ? "custom-class" : ""}`} >
           <form onSubmit={useMemorizedfun(handleSubmit)}>
