@@ -92,6 +92,7 @@ const UserList = () => {
       .get(`http://localhost:9020/roleaccess?menu=productList&role=${role}`)
       .then((response) => {
         if (response.status === 200 && response.data.length > 0) {
+          // console.log(response.data,'response.data in userlist page')
           const userAccess = response.data[0];
           setHaveEditAccess(userAccess.haveedit);
         } else {

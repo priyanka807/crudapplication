@@ -11,17 +11,17 @@
     {
       "id": "priyanka@gmail.com",
       "email": "priyanka@gmail.com",
+      "password": "priyanka",
       "firstName": "priyanka",
       "lastName": "kumari",
-      "role": "admin",
-      "password": "priyanka"
+      "role": "admin"
     },
     {
       "id": "lali@gmail.com",
       "email": "lali@gmail.com",
-      "firstName": "lali",
-      "lastName": "jha",
       "password": "123456",
+      "firstName": "lali",
+      "lastName": "ansari",
       "role": "admin"
     },
     {
@@ -33,36 +33,12 @@
       "role": "user"
     },
     {
-      "id": "kiran@gmail.com",
-      "email": "kiran@gmail.com",
-      "firstName": "kiran",
-      "lastName": "kumari",
+      "id": "maksood@gmail.com",
+      "email": "maksood@gmail.com",
+      "firstName": "maksood",
+      "lastName": "ansari",
       "password": "123456",
-      "role": "user"
-    },
-    {
-      "id": "kiran@gmail.com",
-      "email": "kiran@gmail.com",
-      "firstName": "kiran",
-      "lastName": "kumari",
-      "password": "123456",
-      "role": "user"
-    },
-    {
-      "id": "kiran6@gmail.com",
-      "email": "kiran6@gmail.com",
-      "firstName": "kiran",
-      "lastName": "kumari",
-      "password": "123456",
-      "role": "user"
-    },
-    {
-      "id": "kirti1@gmail.com",
-      "email": "kirti1@gmail.com",
-      "firstName": "kirti",
-      "lastName": "jha",
-      "password": "123456",
-      "role": "user"
+      "role": "superadmin"
     }
   ],
   "roleaccess": [
@@ -86,7 +62,7 @@
       "menu": "productList",
       "haveadd": true,
       "haveedit": true,
-      "havedelete": true
+      "havedelete": false
     },
     {
       "role": "user",
@@ -94,14 +70,8 @@
       "haveadd": false,
       "haveedit": false,
       "havedelete": false
-    },
-    {
-      "role": "admin",
-      "menu": "productList",
-      "haveadd": true,
-      "haveedit": true,
-      "havedelete": false
     }
+  
   ],
   "productList": [
     {
@@ -165,6 +135,13 @@
       "name": "batball",
       "description": "cricket is my favourite game",
       "category": "game",
+      "price": 1000
+    },
+    {
+      "id": "ea79",
+      "name": "costmetic",
+      "description": "this icolor is unique in lipstic ",
+      "category": "cosmetic",
       "price": 1000
     }
   ]
