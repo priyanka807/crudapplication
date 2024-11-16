@@ -12,11 +12,11 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useMemorizedfun from "./useMemorizedfun";
 
-interface formValue {
+interface formInput {
  email:string,
  password:string
 }
-const initialValues:formValue = {
+const initialValues:formInput = {
   email: "",
   password: "",
 };

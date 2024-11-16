@@ -39,6 +39,14 @@
       "lastName": "ansari",
       "password": "123456",
       "role": "superadmin"
+    },
+    {
+      "id": "nisha@gmail.com",
+      "email": "nisha@gmail.com",
+      "firstName": "nisha",
+      "lastName": "jha",
+      "password": "nishanisha",
+      "role": "superadmin"
     }
   ],
   "roleaccess": [
@@ -55,23 +63,25 @@
       "menu": "supplier",
       "haveadd": true,
       "haveedit": true,
-      "havedelete": true
+      "havedelete": true,
+      "id": "3a83"
     },
     {
       "role": "admin",
       "menu": "productList",
       "haveadd": true,
       "haveedit": true,
-      "havedelete": false
+      "havedelete": false,
+      "id": "bec0"
     },
     {
       "role": "user",
       "menu": "productList",
       "haveadd": false,
       "haveedit": false,
-      "havedelete": false
+      "havedelete": false,
+      "id": "8137"
     }
-  
   ],
   "productList": [
     {
