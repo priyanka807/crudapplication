@@ -60,7 +60,7 @@ const UserList = () => {
       if (editUser) {  
        
         axios
-          .put(`https://crudapplication-pld2.vercel.app/userlist/${userId}`, {id:userId,email:values.email,password:values.password, firstName:values.firstName, lastName:values.lastName,role:values.role})
+          .put(`https://my-json-server.typicode.com/priyanka807/demo/userlist/${userId}`, {id:userId,email:values.email,password:values.password, firstName:values.firstName, lastName:values.lastName,role:values.role})
           .then((response) => {
            localStorage.setItem('role',values.role)
             setIsEditing(false);
@@ -78,7 +78,7 @@ const UserList = () => {
 
 
   useEffect(()=>{
-    axios.get("https://crudapplication-pld2.vercel.app/userlist").then((response) => {
+    axios.get("https://my-json-server.typicode.com/priyanka807/demo/userlist").then((response) => {
       setUsers(response.data);
     });
 
@@ -89,7 +89,7 @@ const UserList = () => {
       return
     }
     axios
-      .get(`https://crudapplication-pld2.vercel.app/roleaccess?menu=productList&role=${role}`)
+      .get(`https://my-json-server.typicode.com/priyanka807/demo/roleaccess?menu=productList&role=${role}`)
       .then((response) => {
         if (response.status === 200 && response.data.length > 0) {
           // console.log(response.data,'response.data in userlist page')
@@ -130,7 +130,7 @@ const UserList = () => {
 
                 
 
-                await axios.delete(`https://crudapplication-pld2.vercel.app/userlist/${id}`);
+                await axios.delete(`https://my-json-server.typicode.com/priyanka807/demo/userlist/${id}`);
                 
                
 // const dbRef = ref(getDatabase());
