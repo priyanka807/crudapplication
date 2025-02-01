@@ -57,7 +57,7 @@ const LoginPage = () => {
          
 
             
-            axios.get(`https://crudapplication-pld2.vercel.app/userlist/${values.email}`)
+            axios.get(`https://my-json-server.typicode.com/priyanka807/demo/userlist/${values.email}`)
             .then((res) => {
          
               if(res.data.password===values.password){

@@ -55,7 +55,8 @@ const Signup = () => {
   
           try {
             
-              const response = await axios.get("https://crudapplication-pld2.vercel.app/userlist");
+              const response = await axios.get("https://my-json-server.typicode.com/priyanka807/demo/userlist");
+             console.log(response.data,'response')
               const existingUser = response.data.find((users)=>users.id===values.email);
   
               if (existingUser) {
@@ -63,7 +64,7 @@ const Signup = () => {
               }
   
           
-   await axios.post("https://crudapplication-pld2.vercel.app/userlist", payload)
+   await axios.post("https://my-json-server.typicode.com/priyanka807/demo/userlist", payload)
           //  localStorage.setItem("newUser",JSON.stringify(payload))
 
          

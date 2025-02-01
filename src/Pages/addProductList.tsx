@@ -36,7 +36,7 @@ const AddProductList= () => {
 
       
       try {
-        axios.post("https://crudapplication-pld2.vercel.app/productList", values).then((res)=>{
+        axios.post("https://my-json-server.typicode.com/priyanka807/demo/productList", values).then((res)=>{
            navigate('/ShowProductList')
 
         })
