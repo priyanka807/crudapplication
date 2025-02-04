@@ -36,7 +36,7 @@ const AddProductList= () => {
 
       
       try {
-        axios.post("https://crudapplication-pld2.vercel.app/productList", values).then((res)=>{
+        axios.post("http://localhost:9020/productList", values).then((res)=>{
            navigate('/ShowProductList')
 
         })

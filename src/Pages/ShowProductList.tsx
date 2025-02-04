@@ -69,7 +69,7 @@ const ShowProductList = () => {
     validationSchema: editProductSchemas,
     onSubmit:(values)=>{
       axios
-      .put(`https://crudapplication-pld2.vercel.app/productList/${editProductId?.id}`, values)
+      .put(`http://localhost:9020/productList/${editProductId?.id}`, values)
       .then((res) => {
         const newProduct = res.data;
          navigate('/ShowProductList')
@@ -91,7 +91,7 @@ const ShowProductList = () => {
   
   useEffect(() => {
     axios
-      .get(`https://crudapplication-pld2.vercel.app/productList`)
+      .get(`http://localhost:9020/productList`)
       .then((response) => {
 
         setProducts(response.data)
@@ -103,7 +103,7 @@ const ShowProductList = () => {
   const accessAuthentication = useCallback(() => {
     const role = localStorage.getItem('role')
   
-    axios.get(`https://crudapplication-pld2.vercel.app/roleaccess?menu=productList&role=${role}`)
+    axios.get(`http://localhost:9020/roleaccess?menu=productList&role=${role}`)
 
       .then((res) => {
         if (res.status === 200) {
@@ -148,7 +148,7 @@ const ShowProductList = () => {
             onClick: async () => {
               try {
                 const response = await axios.delete(
-                  `https://crudapplication-pld2.vercel.app/productList/${id}`
+                  `http://localhost:9020/productList/${id}`
                 );
                 setProducts((prevStudents) =>
                   prevStudents.filter((product) => product.id !== id)

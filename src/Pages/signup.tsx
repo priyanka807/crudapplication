@@ -55,7 +55,7 @@ const Signup = () => {
   
           try {
             
-              const response = await axios.get("https://crudapplication-pld2.vercel.app/userlist");
+              const response = await axios.get("http://localhost:9020/userlist");
               const existingUser = response.data.find((users)=>users.id===values.email);
   
               if (existingUser) {
@@ -63,7 +63,7 @@ const Signup = () => {
               }
   
           
-   await axios.post("https://crudapplication-pld2.vercel.app/userlist", payload)
+   await axios.post("http://localhost:9020/userlist", payload)
           //  localStorage.setItem("newUser",JSON.stringify(payload))
 
          
