@@ -53,10 +53,7 @@ const LoginPage = () => {
         // signInWithEmailAndPassword(auth, values.email, values.password)
         //   .then((userCredential) => {
         //     const user = userCredential.user; 
-              //  const id = user.email  
-         
-
-            
+              //  const id = user.email       
             axios.get(`http://localhost:9020/userlist/${values.email}`)
             .then((res) => {
          

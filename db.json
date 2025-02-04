@@ -11,25 +11,17 @@
     {
       "id": "priyanka@gmail.com",
       "email": "priyanka@gmail.com",
-      "password": "priyanka",
+      "password": "priyankafgvxdf",
       "firstName": "priyanka",
       "lastName": "kumari",
-      "role": "admin"
-    },
-    {
-      "id": "lali@gmail.com",
-      "email": "lali@gmail.com",
-      "password": "123456",
-      "firstName": "lali",
-      "lastName": "ansari",
-      "role": "admin"
+      "role": "user"
     },
     {
       "id": "kiranrani@gmail.com",
       "email": "kiranrani@gmail.com",
+      "password": "123456",
       "firstName": "kiran",
       "lastName": "kumari",
-      "password": "123456",
       "role": "user"
     },
     {
