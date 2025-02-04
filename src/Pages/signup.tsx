@@ -45,7 +45,7 @@ const Signup = () => {
   
       if (termsChecked) {
           let payload = {
-              // id: values.email,
+              id: values.email,
               email: values.email,
               firstName: values.first_name,
               lastName: values.last_name,
@@ -55,24 +55,29 @@ const Signup = () => {
   
           try {
             
-              const response = await axios.get("http://localhost:8000/api/user-list");
-             
-           
-              // const existingUser = response.data.find((users)=>users.email===values.email);
-              // console.log(existingUser,'existingUser')
-              // if (existingUser) {
-              //     throw new Error("Email already exists");
-              // }
+              const response = await axios.get("https://my-json-server.typicode.com/priyanka807/demo/userlist");
+             console.log(response.data,'response')
+              const existingUser = response.data.find((users)=>users.id===values.email);
+  
+              if (existingUser) {
+                  throw new Error("Email already exists");
+              }
   
           
-   await axios.post("http://localhost:8000/api/user-list", payload)
-          //  localStorage.setItem("newUser",JSON.stringify(payload))       
+   await axios.post("https://my-json-server.typicode.com/priyanka807/demo/userlist", payload)
+          //  localStorage.setItem("newUser",JSON.stringify(payload))
+
+         
   // console.log(newUser.data,'........newUser')
+          
+             
+  
+     
               toast.success("Registered Successfully");
               navigate('/'); 
           } catch (error) {
            
-              toast.error(error?.response?.data|| "An error occurred");
+              toast.error(error.message || "An error occurred");
           }
       } else {
           toast.error('Please accept the terms and conditions');
@@ -100,27 +105,27 @@ const options = useMemo(()=>{
 
             <div className="form-group">
               <div className="col"><input type="text" className="form-control  form-control-signup" name="first_name" placeholder="First Name"
-                onChange={handleChange} onBlur={handleBlur} value={values.first_name}  /></div>
+                onChange={handleChange} onBlur={handleBlur} value={values.first_name} required /></div>
               {touched.first_name && errors.first_name ? (<span className='error ' onClick={() => setIsSubmit(true)}>{errors.first_name}</span>) : null}
             </div>
 
             <div className="form-group">
               <div className="col"><input type="text" className="form-control  form-control-signup " name="last_name" placeholder="Last Name"
                 onChange={handleChange} onBlur={handleBlur}
-                value={values.last_name}  /></div>
+                value={values.last_name} required /></div>
               {touched.last_name && errors.last_name ? (<span className='error ' onClick={() => setIsSubmit(true)}>{errors.last_name}</span>) : null}
             </div>
 
             <div className="form-group">
-              <input type="email" className="form-control  form-control-signup" name="email" placeholder="Email" onChange={handleChange} onBlur={handleBlur} value={values.email}  />
+              <input type="email" className="form-control  form-control-signup" name="email" placeholder="Email" onChange={handleChange} onBlur={handleBlur} value={values.email} required />
               {touched.email && errors.email ? (<span className='error ' onClick={() => setIsSubmit(true)}>{errors.email}</span>) : null}
             </div>
             <div className="form-group">
-              <input type="password" className="form-control  form-control-signup" name="password" placeholder="Password" onChange={handleChange} onBlur={handleBlur} value={values.password}  />
+              <input type="password" className="form-control  form-control-signup" name="password" placeholder="Password" onChange={handleChange} onBlur={handleBlur} value={values.password} required />
               {touched.password && errors.password ? (<span className='error ' onClick={() => setIsSubmit(true)}>{errors.password}</span>) : null}
             </div>
             <div className="form-group">
-              <input type="password" className="form-control  form-control-signup" name="confirm_password" placeholder="Confirm Password" onChange={handleChange} onBlur={handleBlur} value={values.confirm_password}  />
+              <input type="password" className="form-control  form-control-signup" name="confirm_password" placeholder="Confirm Password" onChange={handleChange} onBlur={handleBlur} value={values.confirm_password} required />
               {touched.confirm_password && errors.confirm_password ? (<span className='error ' onClick={() => setIsSubmit(true)}>{errors.confirm_password}</span>) : null}
             </div>
 
