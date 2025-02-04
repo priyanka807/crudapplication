@@ -11,8 +11,7 @@ const Appheader = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    useEffect(() => {
-       
+    useEffect(() => {       
         if (location.pathname === '/' || location.pathname === '/signup') {
             showmenuupdateupdate(false);
         } else {
@@ -21,7 +20,7 @@ const Appheader = () => {
             const role = localStorage.getItem('role')
             setRole(role);
             if (id === '' || id === null) {
-                navigate('/');
+                navigate('/');     //developers admin , project superadmin , user specific task handle user 
             } else {
                 displayEmailupdate(id);
             }
@@ -39,11 +38,7 @@ const Appheader = () => {
     const handleLogout = () => {
         localStorage.removeItem('id');
         localStorage.removeItem('password');
-
-
-        localStorage.removeItem('role');
-
-       
+        localStorage.removeItem('role');  
     };
 
     return (

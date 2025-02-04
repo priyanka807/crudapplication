@@ -50,52 +50,44 @@ const LoginPage = () => {
       
       
       onSubmit: (values) => {
+     
         // signInWithEmailAndPassword(auth, values.email, values.password)
         //   .then((userCredential) => {
         //     const user = userCredential.user; 
               //  const id = user.email  
          
-
-            
-            axios.get(`https://my-json-server.typicode.com/priyanka807/demo/userlist/${values.email}`)
+const payload = {
+  email:values.email,
+  password:values.password
+}
+          
+            axios.post("http://localhost:8000/api/login-user",payload)
             .then((res) => {
-         
-              if(res.data.password===values.password){
-            
+              // console.log(res.data[0]?.email,'res')
+              // console.log(res?.data?.email,res?.data?.role,'res')
                 if (res.data.role === "superadmin"||res.data.role === "admin") {
                   toast.success('successfully signin');
                   navigate('/user-list');
-                  localStorage.setItem('id',res.data.id );
-                  localStorage.setItem('password', res.data.password);
-                  localStorage.setItem('role',res.data.role );
+                  localStorage.setItem('id',res.data[0]?.email );
+                  console.log(res.data[0]?.email,'inside')
+                  // localStorage.setItem('password', res.data.password);
+                  localStorage.setItem('role',res.data[0]?.role );
 
               } else{
-                localStorage.setItem('id',res.data.id );
-                localStorage.setItem('password', res.data.password);
+                localStorage.setItem('id',res.data[0]?.email );
+                // localStorage.setItem('password', res.data.password);
                
                 const roleCandidate = "user"
                 localStorage.setItem('role',roleCandidate );
-                navigate('/ShowProductList')}
-           
-          
-          }
-
-                
-              else{
-            toast.warning("password do not match")
-          }
+                navigate('/ShowProductList')
+              
+              } 
                
             })
             .catch((error) => {
-              toast.error("Invalid login credentials. Please check and try again,User was not found ")
+              toast.error(error?.response?.data || "An error occurred")
 
-            });
-
-        
-      
-       
-        
-            
+            });          
   // })
   //         .catch((error) => {
   //           const errorCode = error.code;
@@ -137,7 +129,7 @@ const LoginPage = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 ref={refEmail}
-                required
+               
               />
               {touched.email && errors.email ? (
                 <h6
@@ -163,7 +155,7 @@ const LoginPage = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 ref={refPassword}
-                required
+                
               />
               {touched.password && errors.password ? (
                 <h6
