@@ -69,7 +69,7 @@ const ShowProductList = () => {
     validationSchema: editProductSchemas,
     onSubmit:(values)=>{
       axios
-      .put(`https://my-json-server.typicode.com/priyanka807/demo/productList/${editProductId?.id}`, values)
+      .put(`https://crudapplication-pld2.vercel.app/productList/${editProductId?.id}`, values)
       .then((res) => {
         const newProduct = res.data;
          navigate('/ShowProductList')
